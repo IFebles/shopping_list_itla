@@ -6,12 +6,20 @@
  */
 
 #include "Menu.h"
+#include "List.h"
 #include <iostream>
+#include <cstdlib>
+#include <sstream>
 using namespace std;
 
 Menu::Menu()
 {
+	mylist = new List();
+}
 
+Menu::~Menu()
+{
+	delete mylist;
 }
 
 void Menu::clearScreen()
@@ -68,19 +76,49 @@ void Menu::routeAction(int option)
 void Menu::listItems()
 {
 	//TODO: Implement this
-	cout << "Implement  Menu::listItems" << endl;
+	//cout << "Implement  Menu::listItems" << endl;
+
+	int quantity = mylist->getcount();
+
+	if (quantity == 0) return;
+
+	string* items = new string[quantity];
+	mylist->getall(items); 
+
+	for(int x = 0; x < quantity; x++)
+		cout << x + 1 << ") " << items[x] << endl;
+
+	cout << endl;
+
 }
 
 void Menu::addItems()
 {
 	//TODO: Implement this
-	cout << "Implement  Menu::addItems" << endl;
+	//cout << "Implement  Menu::addItems" << endl;
+
+	string itemname;
+	cout << "Input the name of your item: ";
+	cin >> itemname;
+
+	mylist->add(itemname);
 }
 
 void Menu::removeItems()
 {
 	//TODO: Implement this
-	cout << "Implement  Menu::removeItems" << endl;
+	//cout << "Implement  Menu::removeItems" << endl;
+
+	string resp;
+	int inx;
+	cout << "Input the position of the item to delete: ";
+	cin >> resp;
+	istringstream(resp) >> inx;
+
+	if(inx > 0)
+		mylist->remove(inx-1);
+	else
+		cout << "Error: the index must be greater than 0" << endl;
 }
 
 void Menu::show()

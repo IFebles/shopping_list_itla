@@ -12,8 +12,11 @@ class List
 {
 	public:
 		List();
-		void add(Element* element);
+		void add(std::string);
 		void remove(int index);
+		void getall(std::string*);
+		int getcount();
+		int _count;
 	private:
 		Element* _first;
 		Element* _last;

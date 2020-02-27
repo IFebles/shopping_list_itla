@@ -19,8 +19,10 @@ class Menu
 		bool validate(int option);
 		void routeAction(int option);
 		void pause();
+		List* mylist;
 	public:
 		Menu();
+		~Menu();
 		void show();
 };
 

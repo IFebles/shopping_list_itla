@@ -1,4 +1,6 @@
-#ITLA ShoppingList
+(Code from 2016 for the assignment)
+
+# ITLA ShoppingList
 
 This is an academic assignment created by Professor Raydelto Hernandez for his students at Las Americas Institute of technology (www.itla.edu.do).
 
